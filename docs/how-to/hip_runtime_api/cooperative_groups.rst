@@ -729,6 +729,34 @@ uses dedicated global-to-LDS and LDS-to-global transfer paths in widths of 4, 8,
 or 16 bytes. On other devices, the implementation falls back to a software copy
 loop with equivalent semantics.
 
+invoke_one and invoke_one_broadcast
+-----------------------------------
+
+.. code-block:: cpp
+
+  template <typename Group, typename Fn, typename... Args>
+  void invoke_one(const Group& group, Fn&& fn, Args&&... args);
+
+  template <typename Group, typename Fn, typename... Args>
+  auto invoke_one_broadcast(const Group& group, Fn&& fn, Args&&... args) ->
+      decltype(fn(args...));
+
+``invoke_one`` selects a single thread of the calling group and uses it to call ``fn``
+with ``args``. ``invoke_one_broadcast`` does the same, and additionally distributes the
+returned value to all threads of the group.
+
+The thread selection mechanism is not guaranteed to be deterministic. Neither function
+synchronizes the group, so communication or synchronization within the calling group is
+not allowed inside ``fn``. Communication with threads outside of the calling group is
+allowed.
+
+All group types are supported by ``invoke_one``. ``invoke_one_broadcast`` supports
+``coalesced_group`` and ``thread_block_tile<N>``, because the result is distributed
+within a single wavefront.
+
+The return type of ``fn`` passed to ``invoke_one_broadcast`` must be trivially copyable
+and at most 32 bytes in size. For invocables returning ``void``, use ``invoke_one``.
+
 Unsupported NVIDIA CUDA features
 ================================
 
@@ -736,5 +764,4 @@ HIP doesn't support the following CUDA functions/operators in ``cooperative_grou
 
 * ``synchronize``
 * ``wait`` and ``wait_prior``
-* ``invoke_one`` and ``invoke_one_broadcast``
 * ``reduce_update_async`` and ``reduce_store_async``
