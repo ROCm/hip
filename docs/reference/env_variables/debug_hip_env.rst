@@ -98,6 +98,6 @@ and :doc:`GPU isolation <rocm:conceptual/gpu-isolation>`.
       - | The recommended maximum value for this setting is 4.
         | The variable controls how many independent hardware queues HIP runtime can create per process,
         | per device. If an application allocates more HIP streams than this number, then HIP runtime reuses
-        | the same hardware queues for the new streams in a round-robin manner. Note that this maximum
-        | number does not apply to hardware queues that are created for CU-masked HIP streams, or
-        | cooperative queues for HIP Cooperative Groups (single queue per device).
+        | the same hardware queues for the new streams in a round-robin manner. Note: this limit excludes
+        | hardware queues created for CU-masked HIP streams and cooperative queues for HIP Cooperative
+        | Groups (one per device). Setting this value above 4 may result in unpredictable performance.
