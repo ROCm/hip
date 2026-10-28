@@ -60,7 +60,7 @@ typedef enum hipLibraryPropertyType {
 } hipLibraryPropertyType;
 
 #elif !defined(__HIP_PLATFORM_AMD__) && defined(__HIP_PLATFORM_NVIDIA__)
-#include "library_types.h"
+#include <library_types.h>
 #else
 #error ("Must define exactly one of __HIP_PLATFORM_AMD__ or __HIP_PLATFORM_NVIDIA__");
 #endif

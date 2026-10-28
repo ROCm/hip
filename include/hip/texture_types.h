@@ -19,7 +19,7 @@
 #endif
 
 #if !defined(__HIP_PLATFORM_AMD__) && defined(__HIP_PLATFORM_NVIDIA__)
-#include "texture_types.h"
+#include <texture_types.h>
 #elif defined(__HIP_PLATFORM_AMD__) && !defined(__HIP_PLATFORM_NVIDIA__)
 /*******************************************************************************
  *                                                                              *

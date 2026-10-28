@@ -17,7 +17,7 @@
 #endif
 
 #if !defined(__HIP_PLATFORM_AMD__) && defined(__HIP_PLATFORM_NVIDIA__)
-#include "driver_types.h"
+#include <driver_types.h>
 #elif defined(__HIP_PLATFORM_AMD__) && !defined(__HIP_PLATFORM_NVIDIA__)
 
 /**
