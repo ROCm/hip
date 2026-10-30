@@ -74,8 +74,10 @@ the need to transfer data through the host memory.
 
 By adding peer-to-peer access to the example referenced in
 :ref:`multi_device_selection`, data can be efficiently copied between devices.
-If peer-to-peer access is not activated, the call to :cpp:func:`hipMemcpy`
-still works but internally uses a staging buffer in host memory, which incurs a
+If peer-to-peer access is not activated, the calls to :cpp:func:`hipMemcpy`,
+:cpp:func:`hipMemcpyPeer`, :cpp:func:`hipMemcpyPeerAsync`,
+:cpp:func:`hipMemcpy3DPeer`, and :cpp:func:`hipMemcpy3DPeerAsync` still work
+but internally use a staging buffer in host memory, which incurs a
 performance penalty.
 
 .. tab-set::

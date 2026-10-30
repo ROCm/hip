@@ -6003,7 +6003,7 @@ hipError_t hipDeviceEnablePeerAccess(int peerDeviceId, unsigned int flags);
 hipError_t hipDeviceDisablePeerAccess(int peerDeviceId);
 
 /**
- * @brief Copies memory between two peer accessible devices.
+ * @brief Copies memory between two devices.
  *
  * @param [out] dst - Destination device pointer
  * @param [in] dstDeviceId - Destination device
@@ -6016,7 +6016,7 @@ hipError_t hipDeviceDisablePeerAccess(int peerDeviceId);
 hipError_t hipMemcpyPeer(void* dst, int dstDeviceId, const void* src, int srcDeviceId,
                          size_t sizeBytes);
 /**
- * @brief Copies memory between two peer accessible devices asynchronously.
+ * @brief Copies memory between two devices asynchronously.
  *
  * @param [out] dst - Destination device pointer
  * @param [in] dstDeviceId - Destination device
