@@ -47,7 +47,7 @@ For the GPU, the objective is to process as many operations in parallel, rather
 than to finish a single instruction quickly. GPUs in general are made up of basic
 building blocks called :ref:`compute units (CUs) <compute_unit>`, that execute
 the threads of a kernel. As described in :ref:`hardware_implementation`, these
-CUs provide the necessary resources for the threads: the Arithmetic Logical
+CUs provide the necessary resources for the threads: the Arithmetic Logic
 Units (ALUs), register files, caches and shared memory for efficient
 communication between the threads.
 
@@ -275,7 +275,7 @@ For comparison, the ``AddKernel`` program could be written in plain C++ as a ``F
   }
 
 In HIP, lanes of the SIMD architecture are fed by mapping threads of a SIMT
-execution, one thread down each lane of an SIMD engine. Execution parallelism
+execution, one thread down each lane of a SIMD engine. Execution parallelism
 usually isn't exploited from the width of the built-in vector types, but across
 multiple threads via the thread ID constants ``threadIdx.x``, ``blockIdx.x``, etc.
 

@@ -107,7 +107,7 @@ To reset these attributes to the current value, use ``hipMemPoolSetAttribute()``
 Memory reuse policies
 ---------------------
 
-The allocator might reallocate memory as long as the compliant memory accesses will not to overlap temporally. To optimize the memory usage, disable or enable the following memory pool reuse policy attribute flags:
+The allocator might reallocate memory as long as the compliant memory accesses will not overlap temporally. To optimize the memory usage, disable or enable the following memory pool reuse policy attribute flags:
 
 - ``hipMemPoolReuseFollowEventDependencies``: Checks event dependencies before allocating additional GPU memory.
 - ``hipMemPoolReuseAllowOpportunistic``: Checks freed allocations to determine if the stream order semantic indicated by the free operation has been met.

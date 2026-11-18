@@ -41,16 +41,16 @@ The thread hierarchy abstractions of cooperative groups are depicted in the foll
 
   Cooperative group thread hierarchy in grids.
 
-The **multi grid** is an abstraction of potentially multiple simultaneous
+The **multi-grid** is an abstraction of potentially multiple simultaneous
 launches of the same kernel over multiple devices. The **grid** in cooperative
 groups is a single dispatch of kernels for execution like the original grid.
 
 .. note::
 
-  * The ability to synchronize over a grid or multi grid requires the kernel to
+  * The ability to synchronize over a grid or multi-grid requires the kernel to
     be launched using the specific cooperative groups API.
 
-  * Multi grid deprecated since ROCm 5.0.
+  * Multi-grid has been deprecated since ROCm 5.0.
 
 The **block** is the same as the :ref:`inherent_thread_model` block entity.
 
@@ -79,7 +79,7 @@ Group types are based on the levels of synchronization and data sharing among th
 Thread-block group
 ------------------
 
-Represents an intra-block cooperative groups type where the participating threads within the group are the same threads that participated in the currently executing ``block``.
+Represents an intra-block cooperative group type where the participating threads within the group are the same threads that participated in the currently executing ``block``.
 
 .. code-block:: cpp
 
@@ -96,7 +96,7 @@ The ``group_index()`` , ``thread_index()`` , ``thread_rank()`` , ``size()``, ``c
 Grid group
 ------------
 
-Represents an inter-block cooperative groups type where the group's participating threads span multiple blocks running the same kernel on the same device. Use the cooperative launch API to enable synchronization across the grid group.
+Represents an inter-block cooperative group type where the group's participating threads span multiple blocks running the same kernel on the same device. Use the cooperative launch API to enable synchronization across the grid group.
 
 .. code-block:: cpp
 
@@ -114,7 +114,7 @@ are public of the ``grid_group`` class. For further details, check the :ref:`gri
 Multi-grid group
 ------------------
 
-Represents an inter-device cooperative groups type where the participating threads within the group span multiple devices that run the same kernel on the devices. Use the cooperative launch API to enable synchronization across the multi-grid group.
+Represents an inter-device cooperative group type where the participating threads within the group span multiple devices that run the same kernel on the devices. Use the cooperative launch API to enable synchronization across the multi-grid group.
 
 .. code-block:: cpp
 
@@ -285,7 +285,7 @@ The difference to the original block model in the ``reduce_sum`` device function
           // Every iteration the number of active threads
           // halves, until we processed all values
           for(unsigned int i = g.size() / 2; i > 0; i /= 2) {
-              // Store value in shared memroy with thread ID
+              // Store value in shared memory with thread ID
               shared[group_thread_id] = val;
 
               // Synchronize all threads in the group
@@ -347,7 +347,7 @@ The ``reduce_sum()`` function call and input data initialization difference to t
           // ...
       }
 
-At the device function, the input group type is the ``thread_group``, which is the parent class of all the cooperative groups type. With this, you can write generic functions, which can work with any type of cooperative groups.
+At the device function, the input group type is the ``thread_group``, which is the parent class of all cooperative group types. With this, you can write generic functions, which can work with any type of cooperative groups.
 
 .. _coop_synchronization:
 

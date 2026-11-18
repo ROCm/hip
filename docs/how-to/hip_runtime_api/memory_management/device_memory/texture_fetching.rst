@@ -26,7 +26,7 @@ out-of-bounds accesses.
 Depending on the value of the index, :ref:`texture filtering <texture_filtering>`
 or :ref:`texture addressing <texture_addressing>` is performed.
 
-Here is the example texture used in this document for demonstration purposes. It
+Here is an example texture used in this document for demonstration purposes. It
 is 2x2 texels and indexed in the [0 to 1] range.
 
 .. figure:: ../../../../data/how-to/hip_runtime_api/memory_management/textures/original.png

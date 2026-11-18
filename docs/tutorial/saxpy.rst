@@ -202,7 +202,7 @@ example follow.
     If you don't have a version of Visual Studio 2022 installed, for a
     minimal command line experience, install the
     `Build Tools for Visual Studio 2022 <https://aka.ms/vs/17/release/vs_BuildTools.exe>`_
-    with the Desktop Developemnt Workload. Under Individual Components select:
+    with the Desktop Development Workload. Under Individual Components select:
 
     - A version of the Windows SDK
     - "MSVC v143 - VS 2022 C++ x64/x86 build tools (Latest)"
@@ -299,7 +299,7 @@ find out what device binary flavors are embedded into the executable?
       llvm-objdump --disassemble saxpy.0.hipv4-amdgcn-amd-amdhsa--gfx942 > saxpy.s
 
     This creates a file on the disk called ``saxpy.s`` Opening this file or
-    dumping it to the console using ``cat`` lets find the disassembled binary of
+    dumping it to the console using ``cat`` lets you find the disassembled binary of
     the SAXPY compute kernel, something similar to:
 
     .. code-block::

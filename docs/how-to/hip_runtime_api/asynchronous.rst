@@ -110,7 +110,7 @@ Asynchronous execution is particularly advantageous in iterative processes. For
 instance, if a kernel is initiated, it can be efficient to prepare the input
 data simultaneously, provided that this preparation does not depend on the
 kernel's execution. Such iterative data transfer and kernel execution overlap
-can be find in the :ref:`async_example`.
+can be found in the :ref:`async_example`.
 
 Querying device capabilities
 -------------------------------------------------------------------------------
@@ -194,7 +194,7 @@ conditions are met, even if the primary kernel is still running.
 Example
 -------------------------------------------------------------------------------
 
-The examples shows the difference between sequential, asynchronous calls and
+The examples show the difference between sequential, asynchronous calls and
 asynchronous calls with ``hipEvents``.
 
 .. figure:: ../../data/how-to/hip_runtime_api/asynchronous/sequential_async_event.svg

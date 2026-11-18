@@ -60,7 +60,7 @@ Use the :cpp:func:`hipDeviceGetAttribute` function to get the
     if (vmm == 0) {
         std::cout << "GPU " << currentDev << " doesn't support virtual memory management." << std::endl;
     } else {
-        std::cout << "GPU " << currentDev << " support virtual memory management." << std::endl;
+        std::cout << "GPU " << currentDev << " supports virtual memory management." << std::endl;
     }
 
 .. _allocate_physical_memory:
